@@ -4,7 +4,7 @@ docker-java7
 Base CentOS 7 with Oracle JDK 7 and Maven 3.2.3.
 
 This is just a plain JDK 7 image that can be used for Java
-development and compiling. Works well for Java + Maven shops
+development. Works well for Java + Maven shops
 and as a base for Java-based images.
 
 ### Useful scripts
