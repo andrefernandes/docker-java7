@@ -1,18 +1,20 @@
-# CentOS 7 com Oracle JDK 7
+# CentOS 7 + Oracle JDK 7 + Maven
 
-FROM centos:centos7
+FROM andrefernandes/docker-centos7-base
 
 MAINTAINER Andre Fernandes
 
-RUN yum update -y; yum install net-tools tar wget -y; yum clean all
+# Binaries are downloaded from remote sites.
+# A good idea is to keep copies around (your LAN)
+# and switch these URLs to your local servers.
 
-# trocar COPY por wget de jdk-7u65-linux-x64.tar.gz e apache-maven-3.2.2-bin.tar.gz
 WORKDIR /opt
-RUN wget http://172.15.0.50/jdk-7u65-linux-x64.tar.gz -O jdk7.tar.gz && \
+
+RUN wget http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz -O jdk7.tar.gz && \
     tar -xzf jdk7.tar.gz && rm jdk7.tar.gz && \
-    wget http://172.15.0.50/apache-maven-3.2.2-bin.tar.gz -O apache-maven.tar.gz && \
+    wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz -O apache-maven.tar.gz && \
     tar -xzf apache-maven.tar.gz && rm apache-maven.tar.gz 
-#RUN echo "1" | alternatives --config java
+
 RUN alternatives --install /usr/bin/java java /opt/jdk1.7.0_65/bin/java 2 && \
     alternatives --install /usr/bin/jar jar /opt/jdk1.7.0_65/bin/jar 2 && \
     alternatives --install /usr/bin/javac javac /opt/jdk1.7.0_65/bin/javac 2 && \
@@ -20,6 +22,7 @@ RUN alternatives --install /usr/bin/java java /opt/jdk1.7.0_65/bin/java 2 && \
     alternatives --set jar /opt/jdk1.7.0_65/bin/jar && \
     alternatives --set javac /opt/jdk1.7.0_65/bin/javac && \
     alternatives --install /usr/bin/mvn mvn /opt/maven/bin/mvn 1
+
 WORKDIR /opt
-RUN ln -s jdk1.7.0_65 java && ln -s apache-maven-3.2.2 maven
+RUN ln -s jdk1.7.0_67 java && ln -s apache-maven-3.2.3 maven
 

@@ -1,1 +1,1 @@
-sudo docker build -t centos7-java7 .
+sudo docker build -t andrefernandes/docker-java7 .
