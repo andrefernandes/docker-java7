@@ -1,7 +1,7 @@
 docker-java7
 ============
 
-Base CentOS 7 with Oracle JDK 7 and Maven 3.2.3.
+Base CentOS 7 with IBM JDK 7 and Maven 3.5.0.
 
 This is just a plain JDK 7 image that can be used for Java
 development. Works well for Java + Maven shops
@@ -24,9 +24,13 @@ Open bash:
 Show Java version:
 
     ./runbash.sh java -version
-    java version "1.7.0_67"
-    Java(TM) SE Runtime Environment (build 1.7.0_67-b01)
-    Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
-    
+    java version "1.7.0"
+    Java(TM) SE Runtime Environment (build pxa6470_27sr4fp5-20170421_02(SR4 FP5))
+    IBM J9 VM (build 2.7, JRE 1.7.0 Linux amd64-64 Compressed References 20170406_343211 (JIT enabled, AOT enabled)
+    J9VM - R27_Java727_SR4_20170406_2107_B343211
+    JIT  - tr.r13.java_20170406_343211
+    GC   - R27_Java727_SR4_20170406_2107_B343211_CMPRSS
+    J9CL - 20170406_343211)
+    JCL - 20170420_01 based on Oracle jdk7u141-b11
 
 
